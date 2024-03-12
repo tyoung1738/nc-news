@@ -15,3 +15,9 @@ export function getSingleArticle(article_id){
 export function getCommentsByArticleId(article_id){
     return sendNews.get(`/articles/${article_id}/comments`)
 }
+
+export function incrementArticleVoteCount(article_id, increment){
+    return sendNews.patch(`/articles/${article_id}`, {
+        "inc_votes": increment ? 1 : -1
+    })
+}
