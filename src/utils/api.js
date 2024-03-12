@@ -7,3 +7,7 @@ const sendNews = axios.create({
 export function getArticles(){
     return sendNews.get('/articles')
 }
+
+export function getSingleArticle(article_id){
+    return sendNews.get(`/articles/${article_id}`)
+}
