@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import ArticleCard from './ArticleCard'
 import { getSingleArticle } from '../utils/api'
 
@@ -21,6 +21,7 @@ export default function SingleArticle (){
             <p>Votes: {singleArticle.votes} Comments: {singleArticle.comment_count}</p>
             <img src={singleArticle.article_img_url} width='50%'/>
             <p>{singleArticle.body}</p>
+            <p><Link to={`/articles/${article_id}/comments`}>View Comments</Link></p>
         </div>)
     
 }
