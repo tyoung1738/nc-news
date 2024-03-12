@@ -18,7 +18,7 @@ export default function Articles ({articles, setArticles}){
         <ul className="articles-list">
             {articles.map((article)=>{
                 return (
-                    <ArticleCard article={article}/>
+                    <ArticleCard article={article} key={article.article_id}/>
                 )
             })}
         </ul>

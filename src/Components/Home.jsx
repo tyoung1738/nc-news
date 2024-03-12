@@ -19,7 +19,7 @@ export default function Home({articles, setArticles}){
             <p>See below for a selection of our latest articles</p>
             <ul className='articles-list'>
                 {latestFiveArticles.map((article)=>{
-                    return <ArticleCard article={article}/>
+                    return <ArticleCard article={article} key={article.article_id}/>
                 })}
             </ul>
         </div>)

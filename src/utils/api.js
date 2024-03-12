@@ -11,3 +11,7 @@ export function getArticles(){
 export function getSingleArticle(article_id){
     return sendNews.get(`/articles/${article_id}`)
 }
+
+export function getCommentsByArticleId(article_id){
+    return sendNews.get(`/articles/${article_id}/comments`)
+}
