@@ -7,7 +7,7 @@ export default function ArticleCard({article}){
             <img src={article_img_url} width='50%'></img>
             <section>
                <Link to={`/articles/${article_id}`}> <h2>{title}</h2> </Link>
-                <p>{author}</p>
+                <h3>{author}</h3>
             </section>
         </div>)
 } 

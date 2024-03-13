@@ -21,3 +21,14 @@ export function incrementArticleVoteCount(article_id, increment){
         "inc_votes": increment ? 1 : -1
     })
 }
+
+export function postComment(article_id, body, user){
+    return sendNews.post(`/articles/${article_id}/comments`, {
+        username: user.username,
+        body: body
+    })
+}
+
+export function getAllUsers(){
+    return sendNews.get(`/users`)
+}
