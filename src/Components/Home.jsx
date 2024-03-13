@@ -1,4 +1,5 @@
 import { getArticles } from '../utils/api'
+import Account from './Account'
 import ArticleCard from './ArticleCard'
 import { useState, useEffect } from 'react'
 

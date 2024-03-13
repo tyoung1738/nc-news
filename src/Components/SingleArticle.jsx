@@ -1,45 +1,20 @@
 import {useState, useEffect} from 'react'
 import { useParams, Link } from 'react-router-dom'
-import ArticleCard from './ArticleCard'
-import { getSingleArticle, incrementArticleVoteCount } from '../utils/api'
+import { getSingleArticle} from '../utils/api'
+import NewComment from './NewComment'
+import Comments from './Comments'
+import { useAuth } from '../Contexts/UserContext'
+import ArticleVotes from './ArticleVotes'
 
-export default function SingleArticle (){
+export default function SingleArticle ({isLoading, setIsLoading}){
     const { article_id } = useParams()
     const [singleArticle, setSingleArticle] = useState({})
+    const [comments, setComments] = useState([])
+    const [showComments, setShowComments] = useState(false)
     const [newVotes, setNewVotes] = useState(0)
-    const [err, setErr] = useState(null)
 
-    function handleUpvote(){
-        console.log("inside function")
-        setNewVotes((currVotes)=> currVotes + 1)
-        setErr(null)
-        return incrementArticleVoteCount(article_id, true)
-            .then(({data})=>{
-                const {article} = data
-                setNewVotes(()=>article.votes)
-            })
-            .catch((err)=>{
-                setNewVotes((currVotes)=>currVotes - 1)
-                alert('Something went wrong, please try again')
-                setErr('Something went wrong, please try again')
-            })
-    }
-
-    function handleDownvote(){
-        console.log("inside function")
-        setNewVotes((currVotes)=> currVotes - 1)
-        setErr(null)
-        return incrementArticleVoteCount(article_id, false)
-            .then(({data})=>{
-                const {article} = data
-                setNewVotes(()=>article.votes)
-
-            })
-            .catch((err)=>{
-                setNewVotes((currVotes)=>currVotes + 1)
-                alert('Something went wrong, please try again')
-                setErr('Something went wrong, please try again')
-            })
+    function handleShowComments(){
+        setShowComments((currValue)=>!currValue)
     }
 
     useEffect(()=>{
@@ -52,14 +27,16 @@ export default function SingleArticle (){
     }, [article_id])
 
     return (<div className='single-article'>
-            <h2>{singleArticle.title}</h2>
-            <h3>{singleArticle.author}'s take on: {singleArticle.topic} </h3>
-            <p>Votes {newVotes} Comments: {singleArticle.comment_count}</p>
-            <img src={singleArticle.article_img_url} width='50%'/>
-            <p>{singleArticle.body}</p>
-            <button onClick={handleUpvote}>Upvote</button>
-            <button onClick={handleDownvote}>Downvote</button>
-            <p><Link to={`/articles/${article_id}/comments`}>View Comments</Link></p>
-        </div>)
+                <h2>{singleArticle.title}</h2>
+                <h3>{singleArticle.author}'s take on: {singleArticle.topic} </h3>
+                <p>Votes {newVotes} Comments: {singleArticle.comment_count}</p>
+                <img src={singleArticle.article_img_url} width='50%'/>
+                <p>{singleArticle.body}</p>
+                <ArticleVotes newVotes={newVotes} setNewVotes={setNewVotes}/>
+                <NewComment article_id={article_id} comments={comments} setComments={setComments} isLoading={isLoading} setIsLoading={setIsLoading}/>
+                <button onClick={handleShowComments}>{showComments ? "Hide Comments" : "View Comments"}</button>
+                {showComments ? <Comments comments={comments} setComments={setComments} article_id={article_id}/> : null}
+                
+            </div>)
     
 }
