@@ -60,10 +60,6 @@ export default function Account() {
                 <input type='text' onChange={handleUsername}></input>
                 </li>
                 <li>
-                <label>Password</label>
-                <input type='text' onChange={handlePassword}></input>
-                </li>
-                <li>
                 <button type='submit'>Log In</button>    
                 </li>
             </ul>

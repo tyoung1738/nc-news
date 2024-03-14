@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { deleteComment } from "../utils/api"
 import Deleting from "./Deleting"
 
-export default function CommentCard({comment, comments, setComments}){
+export default function CommentCard({comment}){
     const { comment_id } = comment
     const {authUser} = useAuth()
     const [showDelete, setShowDelete] = useState(false)
@@ -19,11 +19,12 @@ export default function CommentCard({comment, comments, setComments}){
     }
     function handleClick(){
         setShowDeleting(true)
-        
         return deleteComment(comment_id)
+            .catch((err)=>{
+                alert("Uh oh, we're having trouble deleting your comment. Please refresh and try again")
+            })
     }
 
-    //error handling
     
     return (<div className='comment-card' onMouseEnter={handleShowDelete} onMouseLeave={handleHideDelete}>
                 {showDeleting ? <Deleting/> : null}

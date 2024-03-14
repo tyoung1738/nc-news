@@ -9,11 +9,6 @@ ul {
   list-style-type: none;
 }
 
-p {
-  color:black
-}
-
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -101,3 +96,9 @@ p {
   width: 100px;
   height: auto;
 }
+
+.dropdown {
+  display: inline-block;
+}
+
+
