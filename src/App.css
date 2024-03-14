@@ -5,6 +5,15 @@
   text-align: center;
 }
 
+ul {
+  list-style-type: none;
+}
+
+p {
+  color:black
+}
+
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -53,7 +62,7 @@
 
 .header {
   grid-area: header;
-  width: 100vw
+  width: 100%
 }
 
 .nav {
@@ -68,7 +77,7 @@
 
 .articles-list {
   grid-area: articles-list;
-  width: 100vw;
+  width: 100%;
 }
 
 .article-card {
@@ -86,10 +95,6 @@
   padding: 10px;
   margin: 10px;
 
-}
-
-ul {
-  list-style-type: none;
 }
 
 #loading-icon {
