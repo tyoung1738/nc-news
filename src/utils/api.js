@@ -4,11 +4,16 @@ const sendNews = axios.create({
     baseURL: 'https://ty-news-api.onrender.com/api'
 })
 
-export function getArticles(){
-    return sendNews.get('/articles')
+export function getArticles(topic){
+    return sendNews.get('/articles', {
+        params: {
+            topic
+        }
+    })
 }
 
 export function getSingleArticle(article_id){
+    console.log("get by id")
     return sendNews.get(`/articles/${article_id}`)
 }
 
