@@ -32,3 +32,7 @@ export function postComment(article_id, body, user){
 export function getAllUsers(){
     return sendNews.get(`/users`)
 }
+
+export function deleteComment(comment_id){
+    return sendNews.delete(`/comments/${comment_id}`)
+}

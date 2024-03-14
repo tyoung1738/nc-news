@@ -33,7 +33,7 @@ export default function SingleArticle ({isLoading, setIsLoading}){
                 <img src={singleArticle.article_img_url} width='50%'/>
                 <p>{singleArticle.body}</p>
                 <ArticleVotes newVotes={newVotes} setNewVotes={setNewVotes}/>
-                <NewComment article_id={article_id} comments={comments} setComments={setComments} isLoading={isLoading} setIsLoading={setIsLoading}/>
+                <NewComment article_id={article_id} comments={comments} setComments={setComments} isLoading={isLoading} setIsLoading={setIsLoading} setShowComments={setShowComments}/>
                 <button onClick={handleShowComments}>{showComments ? "Hide Comments" : "View Comments"}</button>
                 {showComments ? <Comments comments={comments} setComments={setComments} article_id={article_id}/> : null}
                 
