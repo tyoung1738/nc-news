@@ -12,6 +12,7 @@ export default function Articles ({articles, setArticles, err, setErr}){
     const orderQuery = searchParams.get('order')
 
     useEffect(()=>{
+        setErr(null)
         getArticles(topic, sortByQuery, orderQuery)
             .then(({data})=>{
                 const { articles } = data

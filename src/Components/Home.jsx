@@ -18,8 +18,8 @@ export default function Home({articles, setArticles, setErr}){
     }, [])
 
     return (<div id='home'>
-            <p>Welcome to Send News' homepage!</p>
-            <p>See below for a selection of our latest articles</p>
+            <h2>Welcome to Send News' homepage!</h2>
+            <h4>See below for a selection of our latest articles</h4>
             <ul className='articles-list'>
                 {latestFiveArticles.map((article)=>{
                     return <ArticleCard article={article} key={article.article_id}/>
