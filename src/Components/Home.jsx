@@ -3,10 +3,12 @@ import Account from './Account'
 import ArticleCard from './ArticleCard'
 import { useState, useEffect } from 'react'
 
-export default function Home({articles, setArticles}){
+export default function Home({articles, setArticles, setErr}){
+
     const [latestFiveArticles, setLatestFiveArticles] = useState([])
 
     useEffect(()=>{
+        setErr(null)
         getArticles()
             .then(({data})=>{
                 const { articles } = data

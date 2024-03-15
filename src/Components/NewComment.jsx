@@ -3,12 +3,12 @@ import TextareaAutosize from 'react-textarea-autosize'
 import { postComment } from '../utils/api'
 import { useAuth } from '../Contexts/UserContext'
 import Loading from './Loading'
+import ErrorPage from './ErrorPage'
 
-export default function NewComment({article_id, comments, setComments, isLoading, setIsLoading, setShowComments}){
+export default function NewComment({article_id, setComments, isLoading, setIsLoading, setShowComments, err, setErr}){
     const { authUser } = useAuth()
     const [newCommentBody, setNewCommentBody] = useState("")
     const [commentPlaceholder, setCommentPlaceholder] = useState('What would you like to say?')
-    const [postErr, setPostErr] = useState(null)
     
     function handleComment(e){
         const body = e.target.value
@@ -28,7 +28,6 @@ export default function NewComment({article_id, comments, setComments, isLoading
         setIsLoading(true)
         return postComment(article_id, newCommentBody, authUser)
             .then(({data})=>{
-                setPostErr(null)
                 const { comment } = data
                 setComments((currList)=>[comment, ...currList])
                 setIsLoading(false)
@@ -38,11 +37,13 @@ export default function NewComment({article_id, comments, setComments, isLoading
             })
             .catch((err)=>{
                 setIsLoading(false)
-                setPostErr(`Uh oh, your comment didn't go through. Please try again`)
+                setErr(`We had trouble posting your comment`)
             })
 
     }
-    return (isLoading ? <Loading/> : 
+    return (
+        err ? <ErrorPage/> :
+        isLoading ? <Loading/> : 
         <form className='new-comment' onSubmit={handleSubmit}>
             <ul>
             <li>
@@ -52,7 +53,6 @@ export default function NewComment({article_id, comments, setComments, isLoading
             <button type='submit'>Post Comment</button>
             </li>
             </ul>
-            {postErr ? <p>{postErr}</p> : null}
         </form>)
     
 }

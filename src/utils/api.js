@@ -5,7 +5,6 @@ const sendNews = axios.create({
 })
 
 export function getArticles(topic, sort_by, order){
-    console.log(topic, sort_by, order)
     return sendNews.get('/articles', {
         params: {
             topic,
@@ -17,7 +16,6 @@ export function getArticles(topic, sort_by, order){
 }
 
 export function getSingleArticle(article_id){
-    console.log("get by id")
     return sendNews.get(`/articles/${article_id}`)
 }
 
