@@ -12,12 +12,11 @@ export default function TopicDropdown({topicSelection, setTopicSelection}){
         }
     }
     
-    return (<div className="dropdown">
-        <select onChange={handleTopicSelection}>
+    return (
+        <select onChange={handleTopicSelection} className="dropdown">
             <option >Select a topic</option>
             <option value="football">Football</option>
             <option value="coding">Coding</option>
             <option value="cooking">Cooking</option>
-        </select>
-    </div>)
+        </select>)
 }

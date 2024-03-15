@@ -7,6 +7,7 @@
 
 ul {
   list-style-type: none;
+  padding: 0;
 }
 
 .logo {
@@ -63,7 +64,8 @@ ul {
 .nav {
   grid-area: nav;
   width: 100%;
-  border: 3px solid black
+  border: 3px solid black;
+  border-radius: 20px;
 }
 .nav li {
   display: inline-block;
@@ -73,6 +75,7 @@ ul {
 .articles-list {
   grid-area: articles-list;
   width: 100%;
+  padding: 0
 }
 
 .article-card {
@@ -97,8 +100,38 @@ ul {
   height: auto;
 }
 
-.dropdown {
-  display: inline-block;
+.sortby {
+  display: inline-flex;
 }
 
+.dropdown {
+  display: inline-block;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: bold;
+  height: 2rem;
+}
 
+#asc-icon {
+  width: 1.2em;
+  height: auto;
+}
+
+#desc-icon {
+  width: 1.2em;
+  height: auto;
+}
+
+#like-icon {
+  width: 1.5em;
+  height: auto;
+}
+
+#comment-icon {
+  width: 1.5em;
+  height: auto;
+}
+
+#article-card-time {
+  font-weight: lighter;
+}

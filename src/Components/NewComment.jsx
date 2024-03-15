@@ -42,9 +42,16 @@ export default function NewComment({article_id, comments, setComments, isLoading
             })
 
     }
-    return (isLoading ? <Loading/> : <form className='new-comment' onSubmit={handleSubmit}>
+    return (isLoading ? <Loading/> : 
+        <form className='new-comment' onSubmit={handleSubmit}>
+            <ul>
+            <li>
             <TextareaAutosize placeholder={commentPlaceholder} onChange={handleComment} value={newCommentBody}/>
+            </li>
+            <li>
             <button type='submit'>Post Comment</button>
+            </li>
+            </ul>
             {postErr ? <p>{postErr}</p> : null}
         </form>)
     
