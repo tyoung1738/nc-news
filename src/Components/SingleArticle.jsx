@@ -44,7 +44,7 @@ export default function SingleArticle ({isLoading, setIsLoading, err, setErr}){
                 <NewComment article_id={article_id} setComments={setComments} isLoading={isLoading} setIsLoading={setIsLoading} setShowComments={setShowComments} err={err} setErr={setErr}/>
                 <p></p>
                 <button onClick={handleShowComments}>{showComments ? "Hide Comments" : "View Comments"}</button>
-                {showComments ? <Comments comments={comments} setComments={setComments} article_id={article_id}/> : null}
+                {showComments ? <Comments comments={comments} setComments={setComments} article_id={article_id} err={err} setErr={setErr}/> : null}
             </div>)
     
 }
