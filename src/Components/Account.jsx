@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { getAllUsers } from "../utils/api";
 import { useAuth } from '../Contexts/UserContext'
 
@@ -35,7 +35,6 @@ export default function Account() {
     return getAllUsers()
         .then(({data})=>{
             const {users} = data
-            console.log(users)
             const matchedUsers = users.filter((user) => user.username===usernameAttempt)
             matchedUsers.length ? handleLogin(e) : null;
             })

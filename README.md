@@ -1,8 +1,24 @@
-# React + Vite
+# Send News - Article Hosting
+See the live website [here!](https://tommysarticles.netlify.app/) 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Welcome
+This project provides the necessary components to host a mobile-compatible website, manipulating an existing API (SEE HERE) to provide users with existing articles, with the ability to sort, filter, add and remove comments. It also has built in error handling for client/server side errors. 
 
-Currently, two official plugins are available:
+The project is styled in vanilla CSS and built using React. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Running the project locally
+
+#### Requirements
+Minimum Node.js version v21.4.0
+
+In order to run the project locally:
+1. Copy the .git URL
+2. Find a suitable directory on your machine to store the project
+3. In terminal, run the command ```git clone <repo-url>```
+4. Open the file ```code .```
+5. In order to see a version of the app hosted locally, try ```npm run dev``` and click the resulting link that appears in terminal
+
+To deploy the website publicly, consider using a 3rd party hosting service such as [Netlify](https://docs.netlify.com/welcome/add-new-site/) 
+
+
+
