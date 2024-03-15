@@ -4,11 +4,15 @@ const sendNews = axios.create({
     baseURL: 'https://ty-news-api.onrender.com/api'
 })
 
-export function getArticles(topic){
+export function getArticles(topic, sort_by, order){
+    console.log(topic, sort_by, order)
     return sendNews.get('/articles', {
         params: {
-            topic
+            topic,
+            sort_by,
+            order
         }
+        //BE can't sort by comment_count currently
     })
 }
 
