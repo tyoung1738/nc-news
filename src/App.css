@@ -42,10 +42,6 @@ ul {
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
-}
-
 .app-grid {
   display: grid;
   grid-template-rows: auto auto 1fr;
@@ -58,7 +54,33 @@ ul {
 
 .header {
   grid-area: header;
-  width: 100%
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header > a {
+  text-decoration: none; /* Remove underline */
+  width: inherit;
+  height: inherit;
+}
+
+#title {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#home-icon {
+  display: inline-block;
+  width: 40%;
+  vertical-align: middle;
+  padding-left: 0.5em;
+  max-height: 250px;
+  max-width: 250px;
 }
 
 .nav {
