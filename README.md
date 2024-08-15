@@ -1,8 +1,9 @@
 # Send News - Article Hosting
 See the live website [here!](https://tommysarticles.netlify.app/) 
+(Don't mind the slow loading, it's hosted for free!)
 
 ## Welcome
-This project provides the necessary components to host a mobile-compatible website, manipulating an existing API (SEE HERE) to provide users with existing articles, with the ability to sort, filter, add and remove comments. It also has built in error handling for client/server side errors. 
+This project provides the necessary components to host a mobile-compatible website, manipulating an [existing API](https://github.com/tyoung1738/nc-news-api) to provide users with existing articles, with the ability to sort, filter, add and remove comments. It also has built in error handling for client/server side errors. 
 
 The project is styled in vanilla CSS and built using React. 
 
